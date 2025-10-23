@@ -58,14 +58,14 @@ class Cliente {
 
            const respostaBD = await database.query(querySelectClientes);
 
-           respostaBD.rows.forEach((linha: any) => {
+           respostaBD.rows.forEach((clienteBD: any) => {
             const novoCliente: Cliente = new Cliente(
-                linha.nome,
-                linha.cpf,
-                linha.telefone
+                clienteBD.nome,
+                clienteBD.cpf,
+                clienteBD.telefone
             );
 
-            novoCliente.setIdCliente(linha.id_cliente);
+            novoCliente.setIdCliente(clienteBD.id_cliente);
 
             listaDeClientes.push(novoCliente);
 
